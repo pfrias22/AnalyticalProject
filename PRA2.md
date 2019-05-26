@@ -90,14 +90,34 @@ A continuación, se seleccionan los grupos dentro de nuestro conjunto de datos q
 
 ### Comprobación de la normalidad y homogeneidad de la varianza
 
+***Normalidad***
+
 Para realizar la comprobación de que los valores que toman nuestras variables cuantitativas provienen de una población distribuida normalmente, utilizaremos la prueba de normalidad de Shapiro-Wilk.
 Así, se comprueba que para que cada prueba se obtiene un p-valor superior al nivel de significación prefijado alfa = 0, 05. Si esto se cumple, entonces se considera que variable en cuestión sigue una distribución normal.
 
+![Normaidad](./images/normality.png)
+
+Podemos observar que el valor p es menor que 0,05, lo que indica que no hay una distribución normal de los datos.
+
+***Homogeneidad***
+
+Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Fligner-Killeen. En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros hombres frente a los pasajeros mujeres. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
+
+![Normaidad](./images/homogeneidad.png)
+
+Podemos observar que el valor p es menor que 0,05, lo que indica que hay una diferencia significativa en las variaciones entre los grupos.
+
 ### Aplicación de pruebas estadísticas para comparar los grupos de datos. En función de los datos y el objetivo del estudio, aplicar pruebas de contraste de hipótesis, correlaciones, regresiones, etc. Aplicar al menos tres métodos de análisis diferentes
+
+
 
 ## Representación de los resultados a partir de tablas y gráficas
 
+
+
 ## Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las conclusiones? ¿Los resultados permiten responder al problema?
+
+
 
 ## CONTRIBUCIONES AL TRABAJO
 

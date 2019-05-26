@@ -12,6 +12,10 @@ titanic.exportDataset(df)
 
 print("Comenzamos análisis de datos...")
 survived, nosurvived, male, female, child, adult, old = titanic.creationGroups(df)
+print(male.head())
+titanic.normality(df)
+titanic.homogeneity(male, female)
+
 
 
 
