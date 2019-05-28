@@ -23,9 +23,9 @@ Los campos de este conjunto de datos son los siguientes:
 
 ### Importancia y objetivos de los análisis
 
-Con este conjunto de datos se plantea la problemática de determinar qué variables influyen más sobre supervivencia de un pasajero en el Titanic. Además, se podrá proceder a crear modelos de regresión que permitan predecir la supervivencia de un pasajero en función de sus características y contrastes de hipótesis que ayuden a identificar propiedades interesantes en las muestras que puedan ser inferidas con respecto a la población.
+Con este conjunto de datos se plantea la problemática de determinar qué variables influyen más a la hora de determinar la probabilidad de supervivencia de un pasajero en el Titanic. Para esto, se crearán modelos de regresión que permitan predecir la probabilidad de supervivencia de un pasajero en función de sus características,así como contrastes de hipótesis que ayuden a identificar propiedades interesantes en las muestras que puedan ser inferidas con respecto a la población.
 
-Estos análisis adquieren una gran relevancia en casi cualquier sector relacionado con la navegación. Un ejemplo de ello...
+Estos análisis adquieren una gran relevancia en casi cualquier sector relacionado con la navegación. Un ejemplo de ello sería el de determinar el precio de el seguro de un pasajero en función de sus características. También se pueden generar modelos que ayuden a distribuir a los pasajeros por las distintas secciones del barco en función de sus características con el fín de conseguir salvar el máximo de pasajeros posibles en caso de emergencia.
 
 ## INTEGRACIÓN Y SELECCIÓN DE LOS DATOS DE INTERÉS A ANALIZAR
 
@@ -33,16 +33,16 @@ Antes de comenzar con la limpieza de los datos, procedemos a realizar la lectura
 
 ![Lectura de datos](./images/read.png)
 
-Además, observamos cómo los tipos de datos asignados automáticamente por Python a las variables
-se corresponden con el dominio de estas.
+Además, observamos cómo los tipos de datos asignados automáticamente por Python a las variablesse corresponden con el dominio de estas.
 
-La gran mayoría de los atributos del conjunto de datos pertenecen a características que poseen los diferentes pasajeros contenidos en el dataset, por lo que
-será conveniente tenerlos en cuenta durante la realización del proceso de análisis
-
-Sin embargo, podemos prescindir del primer campo (`PassengerId`) dado que no son atributos propios de los pasajeros y, por tanto, resulta menos relevante a la
+A la hora de realizar la selección de atributos, lo primero a tener en cuenta es que en principio se pueden eliminar las características que no son propiamente del pasajero, como valores asignados. Por lo tanto, podemos prescindir del primer campo (`PassengerId`) dado que no son atributos propios de los pasajeros y, por tanto no resulta relevante a la
 hora de resolver nuestro problema.
 
 ![Gestión de atributos](./images/atributos.png)
+
+Una vez eliminados estos atributos, vamos a realizar un primer análisis visual para determinar que variables pueden ser potencialmente más determinantes a la hora de generar los modelos. Observaremos distintos diagramas de barras para determinar que valores de los distintos atributos están relacionados con mayores probabilidades de sobrevivir.
+
+
 
 ## LIMPIEZA DE LOS DATOS
 
