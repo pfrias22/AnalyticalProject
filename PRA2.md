@@ -122,6 +122,16 @@ Podemos observar que el valor p es menor que 0,05, lo que indica que hay una dif
 
 ### Aplicación de pruebas estadísticas para comparar los grupos de datos. En función de los datos y el objetivo del estudio, aplicar pruebas de contraste de hipótesis, correlaciones, regresiones, etc. Aplicar al menos tres métodos de análisis diferentes
 
+El primer paso que realizamos es comprobar la correlación entre la variable Survived y el resto de variables. Comprobamos como la variable más correlacionada es "Sex", seguida de "Pclass".
+
+A continuación comprobamos como existen diferencias significativas en la probabilidad de sobrevivir en función del sexo. Aplicamos un t-test estableciendo como hipótesis nula (H0) que no existen diferencias significativas entre las probabilidades de supervivencia en función del sexo y como hipótesis alternativa (H1) que si existen diferencias significativas y por lo tanto la media de la variable supervivencia para los dos sexos es distinta. Obsrevando los resultados obtenidos vemos como se obtiene un p-value muy inferior a 0,05, lo que nos indica que no podemos aceptar la hipótesis nula y debemos quedarnos con la alternativa. Aplicamos el test de Wilcoxon para asegurar los resultados al tratarse de una población de la cual no podemos asumir la condición de normalidad. Una vez más obtenemos un p-value muy por debajo de 0,05. Cabe comentar que para realizar los tests escogemos muestras de datos por encima de los 30 registros de tamaño para poder trabajar asumiendo que trabajamos con muestras de gran tamaño.
+
+
+
+
+
+
+
 
 
 
@@ -138,6 +148,6 @@ Podemos observar que el valor p es menor que 0,05, lo que indica que hay una dif
 
 | Contribuciones  | Firma  |
 |---|---|
-| Investigación previa  | PFA,   |
-| Redacción de las respuestas  | PFA,   |
-| Desarrollo código | PFA,  |
+| Investigación previa  | PFA, MAC |
+| Redacción de las respuestas  | PFA, MAC |
+| Desarrollo código | PFA, MAC |
