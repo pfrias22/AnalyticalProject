@@ -126,14 +126,19 @@ El primer paso que realizamos es comprobar la correlación entre la variable Sur
 
 A continuación comprobamos como existen diferencias significativas en la probabilidad de sobrevivir en función del sexo. Aplicamos un t-test estableciendo como hipótesis nula (H0) que no existen diferencias significativas entre las probabilidades de supervivencia en función del sexo y como hipótesis alternativa (H1) que si existen diferencias significativas y por lo tanto la media de la variable supervivencia para los dos sexos es distinta. Obsrevando los resultados obtenidos vemos como se obtiene un p-value muy inferior a 0,05, lo que nos indica que no podemos aceptar la hipótesis nula y debemos quedarnos con la alternativa. Aplicamos el test de Wilcoxon para asegurar los resultados al tratarse de una población de la cual no podemos asumir la condición de normalidad. Una vez más obtenemos un p-value muy por debajo de 0,05. Cabe comentar que para realizar los tests escogemos muestras de datos por encima de los 30 registros de tamaño para poder trabajar asumiendo que trabajamos con muestras de gran tamaño.
 
+Una vez realizados los tests estadísticos anteriores, procedemos a generar un modelo de regresión logística. Antes del entrenamiento necesitamos aplicar una serie de preprocesados a los datos para dejarlos listos para el análisis.
 
+El primer paso es aplicar una normalización a los valores de las variables "Age" y "Fare". Aplicamos un StandardScaler() con el que dejamos todos los valores dentro del rango [-1,1] y las variables pasan a tener media 0 y desviación 1.
 
+Acto seguido creamos nuevas variables binarias a partir de los valores que cogen las variables "Title", "Pclass", "Embarked", "SibSp", "Parch" y "Sex". Utilizamos el comando get_dummies de la librería Pandas.
 
+Una vez tenemos los datos listos, dividimos el conjunto en train y test, dejando un 20% de los datos para testear.
 
+Finalmente generamos el modelo de regresión logística con los datos de train y comprobamos sus prestaciones tanto para el conjunto de train como para el de test. Vemos como obtenemos una precisión para predecir la variable "Survived" Por encima del 80% y los resultados obtenidos para train y test no varían en exceso, por lo que podemos considerar que los resultados son buenos y el modelo ofrece buenas prestaciones.
 
+Encontramos el código en el script MAIN.py
 
-
-
+![MAIN](./MAIN.py)
 
 
 ## Representación de los resultados a partir de tablas y gráficas
