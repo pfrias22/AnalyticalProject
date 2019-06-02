@@ -32,6 +32,7 @@ Estos análisis adquieren una gran relevancia en casi cualquier sector relaciona
 Antes de comenzar con la limpieza de los datos, procedemos a realizar la lectura del fichero en formato CSV en el que se encuentran. El resultado devuelto por la llamada a la función read.csv() será un objeto data.frame:
 
 ![Lectura de datos](./images/read.PNG)
+![Describe datos](./images/describe.PNG)
 
 Además, observamos cómo los tipos de datos asignados automáticamente por Python a las variablesse corresponden con el dominio de estas.
 
@@ -46,6 +47,14 @@ Aunque la variable ('Cabin') podría haberse tenido en cuenta, prescindiremos de
 ![Gestión de atributos](./images/atributos.PNG)
 
 Una vez eliminados estos atributos, vamos a realizar un primer análisis visual para determinar que variables pueden ser potencialmente más determinantes a la hora de generar los modelos. Observaremos distintos diagramas de barras para determinar que valores de los distintos atributos están relacionados con mayores probabilidades de sobrevivir.
+
+![Chart age](./Age_bar_chart.png)
+![Chart age](./Embarked_bar_chart.png)
+![Chart age](./Sex_bar_chart.png)
+![Chart age](./Title_bar_chart.png)
+![Chart age](./Pclass_bar_chart.png)
+![Chart age](./Parch_bar_chart.png)
+![Chart age](./SibSp_bar_chart.png)
 
 Observando los diagramas de barras creados llegamos a las siguientes conclusiones:
 
@@ -86,6 +95,10 @@ Los valores extremos o outliers son aquellos que parecen no ser coherentes si re
 Así, se mostrarán sólo los valores atípicos para aquellas variables que los contienen:
 
 ![Atípicos](./images/atipicos.PNG)
+
+Como podemos observar en el gráfico anterior, se detectan valores atípicos en los atributos `Age`, `SibSp`, `Parch` y `Fare`.
+
+Trataremos estos valores atípicos en función de que se tratan de observaciones cuyos valores caen dentro del rango de las variables observadas pero que son únicas en la combinación de los valores de dichas variables. Estas observaciones deber´ıan ser retenidas en el análisis pero estudiando qué influencia ejercen en los procesos de estimación de los modelos considerados.
 
 Función para eliminar valores atítipicos:
 

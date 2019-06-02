@@ -16,7 +16,7 @@ titanic.bar_chart(df_charts, "Title")
 titanic.bar_chart(df_charts, "Embarked")
 titanic.selectAttributes(df)
 titanic.replaceNulls(df)
-titanic.fixoutliers(df)
+#titanic.fixoutliers(df)
 titanic.exportDataset(df)
 
 print("Comenzamos análisis de datos...")
