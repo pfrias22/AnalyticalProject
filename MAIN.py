@@ -1,5 +1,5 @@
-%matplotlib inline
 from imports_func import *
+import matplotlib.pyplot as plt
 import titanicclass
 
 titanic = titanicclass.TitanicClass()
@@ -9,7 +9,7 @@ df_charts = df
 df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\.', expand=False)
 titanic.bar_chart(df_charts, "Pclass")
 titanic.bar_chart(df_charts, "Sex")
-titanic.bar_chart(df_charts, "Age_disc")
+titanic.bar_chart(df_charts, "Age")
 titanic.bar_chart(df_charts, "SibSp")
 titanic.bar_chart(df_charts, "Parch")
 titanic.bar_chart(df_charts, "Title")

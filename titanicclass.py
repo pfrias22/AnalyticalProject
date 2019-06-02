@@ -1,6 +1,6 @@
-#!/usr/bin/env python
-
+# #!/usr/bin/env python
 from imports_func import *
+import matplotlib.pyplot as plt
 
 class TitanicClass:
     
@@ -18,7 +18,7 @@ class TitanicClass:
         df.drop('PassengerId', axis=1, inplace=True)
 
     def replaceNulls(self, df):
-        df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\.', expand=False)
+        df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\\.', expand=False)
         df["Age"].fillna(df.groupby("Title")["Age"].transform("median"), inplace=True)
         # RELLENAMOS CON CLASE MAYORITARIA
         df["Embarked"].fillna("S", inplace=True)
@@ -88,6 +88,7 @@ class TitanicClass:
             print("No homogeneidad")
 
     def bar_chart(self, df_charts, feature):
+        #%matplotlib inline
         bins = pd.IntervalIndex.from_tuples([(0, 5), (5, 15), (15, 30),  (30, 60),(60, 100)])
         df_charts["Age_disc"] = pd.cut(df_charts["Age"],bins)
         survived = df_charts[df_charts["Survived"]==1][feature].value_counts()

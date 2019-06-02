@@ -31,7 +31,7 @@ Estos análisis adquieren una gran relevancia en casi cualquier sector relaciona
 
 Antes de comenzar con la limpieza de los datos, procedemos a realizar la lectura del fichero en formato CSV en el que se encuentran. El resultado devuelto por la llamada a la función read.csv() será un objeto data.frame:
 
-![Lectura de datos](./images/read.png)
+![Lectura de datos](./images/read.PNG)
 
 Además, observamos cómo los tipos de datos asignados automáticamente por Python a las variablesse corresponden con el dominio de estas.
 
@@ -39,27 +39,27 @@ A la hora de realizar la selección de atributos, lo primero a tener en cuenta e
 hora de resolver nuestro problema.
 
 Aunque la variable ('Cabin') podría haberse tenido en cuenta, prescindiremos de ella por dos motivos:
-  - No sabemos en que zona del barco se encontraba el pasajero en el momento de la tragedia.
-  - La variable contiene un alto porcentaje de valores perdidos.
 
-![Gestión de atributos](./images/atributos.png)
+- No sabemos en que zona del barco se encontraba el pasajero en el momento de la tragedia.
+- La variable contiene un alto porcentaje de valores perdidos.
+
+![Gestión de atributos](./images/atributos.PNG)
 
 Una vez eliminados estos atributos, vamos a realizar un primer análisis visual para determinar que variables pueden ser potencialmente más determinantes a la hora de generar los modelos. Observaremos distintos diagramas de barras para determinar que valores de los distintos atributos están relacionados con mayores probabilidades de sobrevivir.
 
 Observando los diagramas de barras creados llegamos a las siguientes conclusiones:
-  - Los pasajeros tienen una probabilidad de supervivencia proporcional a la clase en la que viajan, siendo los de primera clase los que tienen más probabilidad de sobrevivir y los de tercera clase los que menos.
-  - Las mujeres tienen mayor probabilidad de sobrevivir que los hombres.
-  - Los niños, y en especial los de teprana edad (entre 0 y 5 años) tienen mayor probabilidad de sobrevivir.
-  - Las personas con familiares a bordo tienen mayor probabilidad de sobrevivir que los que viajan sin familiares.
-  - El tratamiento que reciben en la variable ('Name') tiene gran influencia a la hora de determinar la probabilidad de supervivencia. Creamos una nueva variable ('Title') donde almacenaremos estos tratamientos.
 
-
+- Los pasajeros tienen una probabilidad de supervivencia proporcional a la clase en la que viajan, siendo los de primera clase los que tienen más probabilidad de sobrevivir y los de tercera clase los que menos.
+- Las mujeres tienen mayor probabilidad de sobrevivir que los hombres.
+- Los niños, y en especial los de teprana edad (entre 0 y 5 años) tienen mayor probabilidad de sobrevivir.
+- Las personas con familiares a bordo tienen mayor probabilidad de sobrevivir que los que viajan sin familiares.
+- El tratamiento que reciben en la variable ('Name') tiene gran influencia a la hora de determinar la probabilidad de supervivencia. Creamos una nueva variable ('Title') donde almacenaremos estos tratamientos.
 
 ## LIMPIEZA DE LOS DATOS
 
 ### ¿Los datos contienen ceros o elementos vacíos?
 
-![Lectura de nulos](./images/nulos.png)
+![Lectura de nulos](./images/nulos.PNG)
 
 ### ¿Cómo gestionarías cada uno de estos casos?
 
@@ -74,7 +74,7 @@ En nuestro caso, reemplazaremos el elemento vacío por un valor:
 - Para el atributo `Embarked`, reemplazaremos los valores vacíos por el valor "S", ya que es el que tiene mayor porcentaje de aparición y hay pocos valores nulos (2).
 - Prescindimos de la variable ('Cabin') ya que no será utilizada en los análisis.
 
-![Gestión de nulos](./images/replace.png)
+![Gestión de nulos](./images/replace.PNG)
 
 ### Identificación y tratamiento de valores extremos
 
@@ -85,11 +85,11 @@ Los valores extremos o outliers son aquellos que parecen no ser coherentes si re
 
 Así, se mostrarán sólo los valores atípicos para aquellas variables que los contienen:
 
-![Atípicos](./images/atipicos.png)
+![Atípicos](./images/atipicos.PNG)
 
 Función para eliminar valores atítipicos:
 
-![Atípicos](./images/outliers.png)
+![Atípicos](./images/outliers.PNG)
 
 ## ANÁLISIS DE LOS DATOS
 
@@ -108,7 +108,7 @@ Así, se comprueba que para que cada prueba se obtiene un p-valor superior al ni
 
 Para el caso que nos atribuye comprobamos que no podemos asumir normalidad en los análisis y modelos a generar.
 
-![Normaidad](./images/normality.png)
+![Normaidad](./images/normality.PNG)
 
 Podemos observar que los p-values son menores que 0,05, lo que indica que no hay una distribución normal de las variables analizadas..
 
@@ -116,7 +116,7 @@ Podemos observar que los p-values son menores que 0,05, lo que indica que no hay
 
 Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Fligner-Killeen. En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros hombres frente a los pasajeros mujeres. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
 
-![Normaidad](./images/homogeneidad.png)
+![Normaidad](./images/homogeneidad.PNG)
 
 Podemos observar que el valor p es menor que 0,05, lo que indica que hay una diferencia significativa en las variaciones entre los grupos.
 
@@ -124,22 +124,23 @@ Podemos observar que el valor p es menor que 0,05, lo que indica que hay una dif
 
 El primer paso que realizamos es comprobar la correlación entre la variable Survived y el resto de variables. Comprobamos como la variable más correlacionada es "Sex", seguida de "Pclass".
 
-A continuación comprobamos como existen diferencias significativas en la probabilidad de sobrevivir en función del sexo. Aplicamos un t-test estableciendo como hipótesis nula (H0) que no existen diferencias significativas entre las probabilidades de supervivencia en función del sexo y como hipótesis alternativa (H1) que si existen diferencias significativas y por lo tanto la media de la variable supervivencia para los dos sexos es distinta. Obsrevando los resultados obtenidos vemos como se obtiene un p-value muy inferior a 0,05, lo que nos indica que no podemos aceptar la hipótesis nula y debemos quedarnos con la alternativa. Aplicamos el test de Wilcoxon para asegurar los resultados al tratarse de una población de la cual no podemos asumir la condición de normalidad. Una vez más obtenemos un p-value muy por debajo de 0,05. Cabe comentar que para realizar los tests escogemos muestras de datos por encima de los 30 registros de tamaño para poder trabajar asumiendo que trabajamos con muestras de gran tamaño.
+A continuación comprobamos que existen diferencias significativas en la probabilidad de sobrevivir en función del sexo. Aplicamos un t-test estableciendo como hipótesis nula (H0) que no existen diferencias significativas entre las probabilidades de supervivencia en función del sexo y como hipótesis alternativa (H1) que sí existen diferencias significativas y por lo tanto la media de la variable supervivencia para los dos sexos es distinta.
+
+Observando los resultados obtenidos vemos como se obtiene un p-value muy inferior a 0,05, lo que nos indica que no podemos aceptar la hipótesis nula y debemos quedarnos con la alternativa. Aplicamos el test de Wilcoxon para asegurar los resultados al tratarse de una población de la cual no podemos asumir la condición de normalidad. Una vez más obtenemos un p-value muy por debajo de 0,05. Cabe comentar que para realizar los tests escogemos muestras de datos por encima de los 30 registros de tamaño para poder trabajar asumiendo que trabajamos con muestras de gran tamaño.
 
 Una vez realizados los tests estadísticos anteriores, procedemos a generar un modelo de regresión logística. Antes del entrenamiento necesitamos aplicar una serie de preprocesados a los datos para dejarlos listos para el análisis.
 
 El primer paso es aplicar una normalización a los valores de las variables "Age" y "Fare". Aplicamos un StandardScaler() con el que dejamos todos los valores dentro del rango [-1,1] y las variables pasan a tener media 0 y desviación 1.
 
-Acto seguido creamos nuevas variables binarias a partir de los valores que cogen las variables "Title", "Pclass", "Embarked", "SibSp", "Parch" y "Sex". Utilizamos el comando get_dummies de la librería Pandas.
+Acto seguido, creamos nuevas variables binarias a partir de los valores de las variables "Title", "Pclass", "Embarked", "SibSp", "Parch" y "Sex". Utilizamos el comando get_dummies de la librería Pandas.
 
 Una vez tenemos los datos listos, dividimos el conjunto en train y test, dejando un 20% de los datos para testear.
 
-Finalmente generamos el modelo de regresión logística con los datos de train y comprobamos sus prestaciones tanto para el conjunto de train como para el de test. Vemos como obtenemos una precisión para predecir la variable "Survived" Por encima del 80% y los resultados obtenidos para train y test no varían en exceso, por lo que podemos considerar que los resultados son buenos y el modelo ofrece buenas prestaciones.
+Finalmente generamos el modelo de regresión logística con los datos de train y comprobamos sus prestaciones tanto para el conjunto de train como para el de test. Vemos que obtenemos una precisión de predicción de la variable "Survived" superior al 80% y los resultados obtenidos para train y test no varían en exceso, por lo que podemos considerar que los resultados son buenos y el modelo ofrece buenas prestaciones.
 
 Encontramos el código en el script MAIN.py
 
 ![MAIN](./MAIN.py)
-
 
 ## Representación de los resultados a partir de tablas y gráficas
 
