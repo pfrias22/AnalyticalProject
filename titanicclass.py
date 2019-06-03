@@ -19,9 +19,19 @@ class TitanicClass:
 
     def replaceNulls(self, df):
         df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\\.', expand=False)
-        df["Age"].fillna(df.groupby("Title")["Age"].transform("median"), inplace=True)
+        #df["Age"].fillna(df.groupby("Title")["Age"].transform("median"), inplace=True)
         # RELLENAMOS CON CLASE MAYORITARIA
         df["Embarked"].fillna("S", inplace=True)
+
+    def replaceNullsKNN(self, df):
+        df_num = df.select_dtypes(include=[np.float])
+        #fancy impute removes column names.
+        train_cols = list(df_num)
+        # Use 5 nearest rows which have a feature to fill in each row's
+        # missing features
+        df2 = pd.DataFrame(KNN(k=3).fit_transform(df_num))
+        df2.columns = train_cols
+        df["Age"] = df2["Age"]
 
     def fixoutliers(self, x):
         xColumnNames=x.columns
