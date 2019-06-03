@@ -36,8 +36,7 @@ Antes de comenzar con la limpieza de los datos, procedemos a realizar la lectura
 
 Además, observamos cómo los tipos de datos asignados automáticamente por Python a las variablesse corresponden con el dominio de estas.
 
-A la hora de realizar la selección de atributos, lo primero a tener en cuenta es que en principio se pueden eliminar las características que no son propiamente del pasajero, como valores asignados. Por lo tanto, podemos prescindir del primer campo (`PassengerId`) dado que no son atributos propios de los pasajeros y, por tanto no resulta relevante a la
-hora de resolver nuestro problema.
+A la hora de realizar la selección de atributos, lo primero a tener en cuenta es que en principio se pueden eliminar las características que no son propiamente del pasajero, como valores asignados. Por lo tanto, podemos prescindir del primer campo (`PassengerId`) dado que no son atributos propios de los pasajeros y, por tanto no resulta relevante a la hora de resolver nuestro problema, y el nombre, ya que este tampoco es relevante.
 
 Aunque la variable ('Cabin') podría haberse tenido en cuenta, prescindiremos de ella por dos motivos:
 
@@ -79,7 +78,7 @@ Existen diferentes maneras de gestionar los elementos vacíos:
 
 En nuestro caso, reemplazaremos el elemento vacío por un valor:
 
-- Para el atributo `Age`, reemplazaremos los elementos vacíos por la mediana de los valores de edades, solo teniendo en cuenta los registros que en la variable ('Name') reciben el mismo tratamiento que el registro a rellenar. Es decir, agruparemos por tipo de nombre para aproximar la edad al máximo en función del registro que estamos completando (señor, señora, niño, etc.).
+- Para el atributo `Age`, reemplazaremos los elementos vacíos por la utilizando una imputación por el algoritmo KNN.
 - Para el atributo `Embarked`, reemplazaremos los valores vacíos por el valor "S", ya que es el que tiene mayor porcentaje de aparición y hay pocos valores nulos (2).
 - Prescindimos de la variable ('Cabin') ya que no será utilizada en los análisis.
 
@@ -98,7 +97,7 @@ Así, se mostrarán sólo los valores atípicos para aquellas variables que los 
 
 Como podemos observar en el gráfico anterior, se detectan valores atípicos en los atributos `Age`, `SibSp`, `Parch` y `Fare`.
 
-Trataremos estos valores atípicos en función de que se tratan de observaciones cuyos valores caen dentro del rango de las variables observadas pero que son únicas en la combinación de los valores de dichas variables. Estas observaciones deber´ıan ser retenidas en el análisis pero estudiando qué influencia ejercen en los procesos de estimación de los modelos considerados.
+Trataremos estos valores atípicos en función de los valores intercuartílicos 1 y 3, y cogeríamos el valor máximo y mínimo dentro de ese rango. Si el valor supera el valor máximo, este valor se cambiara por este, de igual manera con el mínimo.
 
 Función para eliminar valores atítipicos:
 
@@ -127,7 +126,7 @@ Podemos observar que los p-values son menores que 0,05, lo que indica que no hay
 
 ***Homogeneidad***
 
-Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Fligner-Killeen. En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros hombres frente a los pasajeros mujeres. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
+Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Levene (Fligner-Killeen). En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros supervivientes y los no supervivientes. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
 
 ![Normaidad](./images/homogeneidad.PNG)
 

@@ -15,10 +15,10 @@ class TitanicClass:
         return df
 
     def selectAttributes(self, df):
-        df.drop('PassengerId', axis=1, inplace=True)
+        df.drop(['PassengerId', 'Name', 'Cabin'], axis=1, inplace=True)
 
     def replaceNulls(self, df):
-        df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\\.', expand=False)
+        #df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\\.', expand=False)
         #df["Age"].fillna(df.groupby("Title")["Age"].transform("median"), inplace=True)
         # RELLENAMOS CON CLASE MAYORITARIA
         df["Embarked"].fillna("S", inplace=True)
@@ -36,26 +36,29 @@ class TitanicClass:
     def fixoutliers(self, x):
         xColumnNames=x.columns
         for j in xColumnNames:
-            if j != "Parch":
-                try:
-                    xy=x[j]    
-                    updated=[]
-                    Q1,Q3=np.percentile(xy,[25,75])
-                    IQR=Q3-Q1
-                    minimum=Q1-1.5*IQR
-                    maximum=Q3+1.5*IQR
-                    for i in xy:
-                        if(i>maximum):
-                            i=maximum
-                            updated.append(i)
-                        elif(i<minimum):
-                            i=minimum
-                            updated.append(i)
-                        else:
-                            updated.append(i)
-                    x[j]=updated
-                except:
-                    continue
+            try:
+                xy=x[j]    
+                updated=[]
+                outliers = []
+                Q1,Q3=np.percentile(xy,[25,75])
+                IQR=Q3-Q1
+                minimum=Q1-1.5*IQR
+                maximum=Q3+1.5*IQR
+                for i in xy:
+                    outlier = False
+                    if(i>maximum):
+                        outlier = True
+                        i=maximum
+                    elif(i<minimum):
+                        outlier = True
+                        i=minimum
+                    if(outlier):
+                        outliers.append(i)
+                    updated.append(i)
+                x[j]=updated
+                print("Outliers de la columna", j, ":", outliers)
+            except:
+                continue
         return x
     
     def exportDataset(self, df):
