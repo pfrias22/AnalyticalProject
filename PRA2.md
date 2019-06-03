@@ -128,9 +128,11 @@ Podemos observar que los p-values son menores que 0,05, lo que indica que no hay
 
 ***Homogeneidad***
 
-Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Levene. En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros supervivientes y los no supervivientes. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
+Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Levene y de un test de Fligner. En ambos caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros supervivientes y los no supervivientes. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
 
-![Normalidad](./images/homogeneidad.PNG)
+![Homogeneidad](./images/homogeneidad.PNG)
+
+![Homogeneidad](./images/homogeneidad2.PNG)
 
 Podemos observar que el valor p es menor que 0,05, lo que indica que hay una diferencia significativa en las variaciones entre los grupos.
 

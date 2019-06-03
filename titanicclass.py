@@ -99,6 +99,14 @@ class TitanicClass:
             print("Homogeneidad")
         else:
             print("No homogeneidad")
+        
+    def homogeneityFligner(self, df):
+        statistic, pvalue = fligner(df.survived["Survived"], df.nosurvived["Survived"], center='mean')
+        print("Fligner Statistic " + str(statistic) + " and p-value " + str(pvalue))
+        if pvalue > 0.05:
+            print("Homogeneidad")
+        else:
+            print("No homogeneidad")
 
     def bar_chart(self, df_charts, feature):
         #%matplotlib inline

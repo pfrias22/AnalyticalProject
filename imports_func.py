@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import shapiro
 from scipy.stats import levene
+from scipy.stats import fligner
 import scipy.stats as stats
 import scipy
 from sklearn.preprocessing import StandardScaler
