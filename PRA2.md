@@ -103,6 +103,8 @@ Función para eliminar valores atítipicos:
 
 ![Atípicos](./images/outliers.PNG)
 
+![Atípicos2](./images/outliers2.PNG)
+
 ## ANÁLISIS DE LOS DATOS
 
 ### Selección de los grupos de datos que se quieren analizar/comparar (planificación de los análisis a aplicar).
@@ -126,9 +128,9 @@ Podemos observar que los p-values son menores que 0,05, lo que indica que no hay
 
 ***Homogeneidad***
 
-Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Levene (Fligner-Killeen). En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros supervivientes y los no supervivientes. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
+Continuamos estudiando la homogeneidad de varianzas mediante la aplicación de un test de Levene. En este caso, estudiaremos esta homogeneidad en cuanto a los grupos conformados por los pasajeros supervivientes y los no supervivientes. En el siguiente test, la hipótesis nula consiste en que ambas varianzas son iguales.
 
-![Normaidad](./images/homogeneidad.PNG)
+![Normalidad](./images/homogeneidad.PNG)
 
 Podemos observar que el valor p es menor que 0,05, lo que indica que hay una diferencia significativa en las variaciones entre los grupos.
 
@@ -150,9 +152,7 @@ Una vez tenemos los datos listos, dividimos el conjunto en train y test, dejando
 
 Finalmente generamos el modelo de regresión logística con los datos de train y comprobamos sus prestaciones tanto para el conjunto de train como para el de test. Vemos que obtenemos una precisión de predicción de la variable "Survived" superior al 80% y los resultados obtenidos para train y test no varían en exceso, por lo que podemos considerar que los resultados son buenos y el modelo ofrece buenas prestaciones.
 
-Encontramos el código en el script MAIN.py
-
-![MAIN](./MAIN.py)
+Encontramos el código en el script [MAIN.py](./MAIN.py)
 
 ## Representación de los resultados a partir de tablas y gráficas
 
