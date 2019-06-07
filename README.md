@@ -9,8 +9,7 @@
 
 Esta versión realiza el almacenamiento de los datos en un estructura de carpetas por año, mes y día. Contiene opción para plotear datos.
 
-- cryclass.py: contiene las funciones para scrapear, guardar y plotear datos.
-- collect_data.py: contiene bucle para recoger datos.
-- plot_data.py: plotea datos de una moneda y fecha concretas indicadas por parámetro.
+- PRA2.md: informe donde se reflejan los pasos seguidos y los resultados obtenidos.
+- titanicclass.py: contiene distintas funciones de soporte para realizar los análisis, las cuales son llamadas en MAIN.py
+- MAIN.py: código principal.
 - imports_func.py: contiene todos los comandos para cargar librerías.
-- parametros.py: contiene los parámetros utilizados en el resto de ficheros del proyecto.
