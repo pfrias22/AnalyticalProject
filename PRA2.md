@@ -97,7 +97,7 @@ Así, se mostrarán sólo los valores atípicos para aquellas variables que los 
 
 Como podemos observar en el gráfico anterior, se detectan valores atípicos en los atributos `Age`, `SibSp`, `Parch` y `Fare`.
 
-Trataremos estos valores atípicos en función de los valores intercuartílicos 1 y 3, y cogeríamos el valor máximo y mínimo dentro de ese rango. Si el valor supera el valor máximo, este valor se cambiara por este, de igual manera con el mínimo.
+Trataremos estos valores atípicos en función de los valores intercuartílicos 1 y 3, y cogeríamos el valor máximo y mínimo dentro de ese rango. Si el valor supera el valor máximo, este valor se cambiara por este, de igual manera con el mínimo. Haremos las siguientes operaciones para evitar que estos valores extremos tengan un peso mayor al resto de valores, pudiendonos conducir a la generación de modelos sesgados, donde estos valores tendrán más influencia.
 
 Función para eliminar valores atítipicos:
 
@@ -122,9 +122,9 @@ Así, se comprueba que para que cada prueba se obtiene un p-valor superior al ni
 
 Para el caso que nos atribuye comprobamos que no podemos asumir normalidad en los análisis y modelos a generar.
 
-![Normaidad](./images/normality.PNG)
+![Normalidad](./images/normality.png)
 
-Podemos observar que los p-values son menores que 0,05, lo que indica que no hay una distribución normal de las variables analizadas..
+Podemos observar que los p-values son menores que 0,05, lo que indica que no hay una distribución normal de las variables analizadas.
 
 ***Homogeneidad***
 
@@ -158,11 +158,28 @@ Encontramos el código en el script [MAIN.py](./MAIN.py)
 
 ## Representación de los resultados a partir de tablas y gráficas
 
+A continuación adjuntamos distintos gráficos y tablas que reflejan los resultados obtenidos.
+
+En primer lugar ploteamos las matrices de confusión obtenidas.
+
+![confusion_matrix_train](./images/confusion_matrix_train.png)
+![confusion_matrix_test](./images/confusion_matrix_test.png)
+
+Debido al imbalanceo de clases, no es suficiente con mirar los valores de accuracy obtenidos. Debido a esto comprobamos como obtenemos buenas prestaciones en términos de f-score, una métrica donde se tiene en cuenta este imbalanceo.
+
+![classification_report](./images/classification_report.png)
+
+Finalmente, observamos como obtenemos una curva ROC donde los resultados son buenos, ya que tenemos una área por debajo de la curva (AUC) DE 0.86, un valor más que aceptable.
+
+![ROC_curve](./images/ROC_curve.png)
+
 
 
 ## Resolución del problema. A partir de los resultados obtenidos, ¿cuáles son las conclusiones? ¿Los resultados permiten responder al problema?
 
+A partir de los resultados obtenidos, llegamos a la conclusión de que las variables utilizadas son útiles para determinar las probablidades de supervivencia de un pasajero, por lo tanto conseguimos dar respuesta al problema planteado.
 
+Por lo tanto, el modelo de regresión generado podría ser útil para conseguir los objetivos propuestos en el apartado de objetivos.
 
 ## CONTRIBUCIONES AL TRABAJO
 

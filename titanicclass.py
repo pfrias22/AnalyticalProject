@@ -15,7 +15,7 @@ class TitanicClass:
         return df
 
     def selectAttributes(self, df):
-        df.drop(['PassengerId', 'Name', 'Cabin'], axis=1, inplace=True)
+        df.drop(['PassengerId', 'Cabin'], axis=1, inplace=True)
 
     def replaceNulls(self, df):
         #df['Title'] = df['Name'].str.extract(' ([A-Za-z]+)\\.', expand=False)
