@@ -7,9 +7,10 @@
 
 ## Descripción ficheros
 
-Esta versión realiza el almacenamiento de los datos en un estructura de carpetas por año, mes y día. Contiene opción para plotear datos.
+Esta versión realiza la limpieza, procesamiento y almacenamiento de los datos en un fichero csv.
 
 - PRA2.md: informe donde se reflejan los pasos seguidos y los resultados obtenidos.
+- PRA2.pdf: informe donde se reflejan los pasos seguidos y los resultados obtenidos.
 - titanicclass.py: contiene distintas funciones de soporte para realizar los análisis, las cuales son llamadas en MAIN.py
 - MAIN.py: código principal.
 - imports_func.py: contiene todos los comandos para cargar librerías.
